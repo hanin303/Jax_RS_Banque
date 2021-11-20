@@ -23,7 +23,7 @@ public class Tp21Application  implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		Compte cpt1 = new Compte(1, 100.000,new Date());
+		Compte cpt1 = new Compte(100.000,new Date());
 		CptRep.save(cpt1);
 	}
 

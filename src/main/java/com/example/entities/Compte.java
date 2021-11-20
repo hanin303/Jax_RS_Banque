@@ -3,12 +3,14 @@ package com.example.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Compte {
 	
 	@Id 
+	@GeneratedValue
 	private long code;
 	private double solde;
 	private Date date;
@@ -18,9 +20,8 @@ public class Compte {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Compte(long code, double solde, Date date) {
+	public Compte( double solde, Date date) {
 		super();
-		this.code = code;
 		this.solde = solde;
 		this.date = date;
 	}
