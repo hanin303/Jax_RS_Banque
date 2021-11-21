@@ -11,7 +11,7 @@ public class Compte {
 	
 	@Id 
 	@GeneratedValue
-	private long code;
+	private Long code;
 	private double solde;
 	private Date date;
 	
@@ -25,28 +25,32 @@ public class Compte {
 		this.solde = solde;
 		this.date = date;
 	}
-	 
-	
-	public long getCode() {
+
+	public Long getCode() {
 		return code;
 	}
-	public void setCode(long code) {
+
+	public void setCode(Long code) {
 		this.code = code;
 	}
+
 	public double getSolde() {
 		return solde;
 	}
+
 	public void setSolde(double solde) {
 		this.solde = solde;
 	}
+
 	public Date getDate() {
 		return date;
 	}
+
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	
+	 
+
 
 	
 }

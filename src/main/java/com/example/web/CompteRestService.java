@@ -21,14 +21,14 @@ import com.example.dao.CompteRepository;
 import com.example.entities.Compte;
 
 @Component
-@Path("/Banque")
+@Path("/comptes")
 public class CompteRestService {
 	
 	@Autowired
 	private CompteRepository CptRep ;
 
 	@GET
-	@Path("/Comptes")
+	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Compte> getComptes(){
 		return CptRep.findAll();
@@ -36,9 +36,9 @@ public class CompteRestService {
 	}
 	
 	@GET
-	@Path("/Compte/{code}")
+	@Path("/{code}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Compte getCompte(@PathParam(value= "code") long cd) {
+	public Compte getCompte(@PathParam(value= "code") Long cd) {
 		Optional<Compte> cpt=CptRep.findById(cd);
 		if (cpt.isPresent()) { 
 			return cpt.get();
@@ -48,9 +48,9 @@ public class CompteRestService {
 	
 
 	@DELETE
-	@Path("/deleteCompte/{code}")
+	@Path("/{code}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void deletCompte(@PathParam(value = "code")long cd) {
+	public void deletCompte(@PathParam(value = "code")Long cd) {
 		Optional<Compte> cpt=CptRep.findById(cd);
 		if (cpt.isPresent()) { 
 			CptRep.deleteById(cd);
@@ -59,7 +59,7 @@ public class CompteRestService {
 	
      
     @POST
-	@Path("/addCompte")
+	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Compte Addcompte(@RequestBody Compte compte){
     	Optional<Compte> cpt=CptRep.findById(compte.getCode());
@@ -70,7 +70,7 @@ public class CompteRestService {
 	}
  
     @PUT
-    @Path("/updateCompte/{code}")
+    @Path("/{code}")
 	@Produces(MediaType.APPLICATION_JSON)
     public Compte EditCompte(@PathParam(value = "code") Long code,
     						 @RequestBody Compte comptemodif)throws ResourceNotFoundException{
